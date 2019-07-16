@@ -22,11 +22,11 @@ public class Dobbelstenen {
         return worp;
     }
     public void setVasthouden(){
-        vasthouden = true;
+        vasthouden = false;
 
     }
      public boolean getVasthouden(){
-        return true;
+        return false;
      }
 
 //    public boolean isVasthouden(){

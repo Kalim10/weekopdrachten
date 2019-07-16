@@ -1,6 +1,7 @@
 package nl.nl.qien.weekopdrachten.yathzee;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 class Yathzee {
@@ -24,19 +25,8 @@ class Yathzee {
         stenen.add(steen3);
         stenen.add(steen4);
         stenen.add(steen5);
-        
-
-    }
 
 
-    public int werpen(int worp) {
-        worp = (int) (Math.random() * 6 + 1);
-        // steen1.getWorp();
-        // steen2.getWorp();
-        // steen3.getWorp();
-        // steen4.getWorp();
-        // steen5.getWorp();
-        return worp;
     }
 
 
@@ -49,32 +39,32 @@ class Yathzee {
             do {
                 sc.nextLine();
                 for (Dobbelstenen steen : stenen) {
-                    int worp = steen.getWorp();
-                    int positie = steen.positie;
-                    System.out.print("positie:" + positie);
-                    System.out.println("Worp:" + worp);
 
+                    if (steen.vasthouden == false) {
+                        int worp = steen.getWorp();
+                        int positie = steen.positie;
 
+                        System.out.print("positie:" + positie);
+                        System.out.println(" Worp:" + worp);
 
-                    //int vasthouden = Integer.parseInt();
-//                do{
-//                    sc.nextLine();
-//                    System.out.println("Welke posities vasthouden");
-//                }while(spel !=0);
+                    }
 
 
                 }
-                System.out.println("Welke dobbelsteen vasthouden?");
-                int vasthouden = sc.nextInt();
-                System.out.println(vasthouden + "wordt vastgehouden");
+                System.out.println("Welke posities wil je vasthouden? (positie,positie)");
+
+                String temp = sc.nextLine();
+                String[] split = temp.split(",");
+                for (String index : split) {
+                    stenen.get(Integer.parseInt(index) - 1).vasthouden = true;
+
+                }
 
 
             } while (spel != 0);
     }
 
-    void vasthouden(int positie) {
 
-    }
 }
 
 //   for(//int worp:stenen){
